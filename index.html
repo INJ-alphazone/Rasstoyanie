@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090b1c"><title>Across the Distance 💗</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 10%,#30204f,#090b1c 60%);color:#fff7fc;font-family:system-ui,sans-serif;text-align:center;min-height:100vh;overflow-x:hidden}header{padding:42px 18px 0}.eyebrow{color:#ffb1d2;text-transform:uppercase;letter-spacing:.2em;font-size:.72rem}h1{font:500 clamp(2.5rem,8vw,5rem) Georgia,serif;margin:14px 0}h1 span{color:#ff76b7;font-style:italic}p{color:#cbc6e3;line-height:1.7}.subtitle{max-width:620px;margin:auto}main{max-width:1050px;margin:auto;padding:0 16px 45px}.globe{height:min(65vw,560px);min-height:330px;position:relative}
+#globe{position:absolute;inset:0}
+.portrait{position:absolute;z-index:2;top:50%;width:clamp(92px,13vw,154px);transform:translateY(-50%);padding:7px 7px 13px;background:#fff;color:#21192a;border-radius:5px;box-shadow:0 14px 45px #0008;transition:transform .35s,box-shadow .35s}
+.portrait img{display:block;width:100%;height:clamp(112px,15vw,175px);object-fit:cover;border-radius:2px}
+.portrait .caption{font:10px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-top:10px;color:#57455e}
+.portrait.left{left:1%;transform:translateY(-50%) rotate(-7deg)}
+.portrait.right{right:1%;transform:translateY(-50%) rotate(7deg)}
+.portrait:hover{z-index:4;box-shadow:0 18px 50px #000b}
+.portrait.left:hover{transform:translateY(-50%) rotate(-2deg) scale(1.04)}
+.portrait.right:hover{transform:translateY(-50%) rotate(2deg) scale(1.04)}
+.note{position:absolute;bottom:10px;left:0;right:0;font-size:.75rem;color:#c7c4df;pointer-events:none}.panel{background:#17152dbb;border:1px solid #ffb1d22c;border-radius:24px;padding:26px 18px;backdrop-filter:blur(15px);box-shadow:0 20px 60px #0003}.route{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;color:#d4cfe8;font-size:.9rem}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff76b7;box-shadow:0 0 12px #ff76b7;margin-right:6px}.line{width:45px;border-top:1px dashed #ffb1d2}.distance{font-size:clamp(2.8rem,9vw,5rem);font-weight:800;letter-spacing:-.05em;background:linear-gradient(90deg,#fff,#ffabd3,#b9a8ff);color:transparent;background-clip:text;margin:12px 0 0}.label{color:#c7c4df;font-size:.9rem}.buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}button{border:0;border-radius:99px;padding:13px 18px;background:linear-gradient(110deg,#ffc0dd,#ff76b7);color:#210b20;font-weight:750;cursor:pointer}button.secondary{color:#fff;background:#ffffff12;border:1px solid #ffffff2b}.message{min-height:65px;margin:20px auto 0;max-width:650px;color:#ffe6f2;font:clamp(1.1rem,3vw,1.5rem)/1.5 Georgia,serif;opacity:0;transform:translateY(8px);transition:.4s}.message.show{opacity:1;transform:none}.counter{display:flex;align-items:center;gap:18px;text-align:left;max-width:760px;margin:20px auto;padding:22px}.bigheart{font-size:2.7rem}.counter h2{margin:0 0 5px;font-size:1.1rem}.counter p{margin:0;font-size:.9rem}.pink{color:#ffb1d2;font-weight:800}.footer{font-size:.76rem;color:#8985a9;padding:22px 10px}.heart{position:fixed;top:-40px;z-index:5;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(500deg);opacity:0}}@media(max-width:600px){
+header{padding-top:32px}
+.globe{height:460px;min-height:460px}
+.portrait{top:auto;bottom:26px;width:104px;padding:5px 5px 10px}
+.portrait img{height:112px}
+.portrait.left{left:4%;transform:rotate(-6deg)}
+.portrait.right{right:4%;transform:rotate(6deg)}
+.portrait.left:hover{transform:rotate(-2deg) scale(1.03)}
+.portrait.right:hover{transform:rotate(2deg) scale(1.03)}
+.note{bottom:4px}
+.panel{padding:22px 12px}.counter{padding:18px}
+}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="eyebrow">Two cities · one little connection</div><h1>Across the <span>Distance</span> 💗</h1><p class="subtitle">A little corner of the universe for two people who live in different places — and still found a reason to talk.</p></header>
+<main><section class="globe">
+<div id="globe"></div>
+<div class="portrait left"><img src="novosibirsk.jpg" alt="Photo from Novosibirsk"><div class="caption">✦ Novosibirsk</div></div>
+<div class="portrait right"><img src="dresden.jpg" alt="Photo from Dresden"><div class="caption">✦ Dresden</div></div>
+<div class="note">Drag to explore the Earth · Two corners of one world</div>
+</section>
+<section class="panel"><div class="route"><span><i class="dot"></i>Novosibirsk, Russia</span><span class="line"></span><span><i class="dot"></i>Dresden, Germany</span></div><div class="distance" id="distance">— km</div><div class="label">as the crow flies · across one beautiful Earth</div>
+<div class="buttons"><button id="measure">✨ Measure our distance</button><button class="secondary" id="surprise">💌 A little surprise</button><button class="secondary" id="hearts">💗 Send some hearts</button></div><div class="message" id="message" aria-live="polite"></div></section>
+<section class="panel" style="margin-top:20px">
+<div style="font-size:1.8rem;margin-bottom:6px">🎧</div>
+<h2 style="margin:0 0 8px;font-family:Georgia,serif;font-weight:500">Our little soundtrack</h2>
+<p style="margin:0 auto 14px;max-width:520px">A song for this little moment, wherever we are in the world.</p>
+<audio id="ourSong" preload="metadata" loop style="display:none"><source src="song.mp3" type="audio/mpeg"></audio>
+<div class="buttons" style="margin-top:12px">
+<button id="playSong">▶ Play our song</button>
+<button class="secondary" id="pauseSong">Ⅱ Pause</button>
+</div>
+<div class="label" id="musicStatus" style="margin-top:12px">Tap play when you're ready 💗</div>
+</section>
+<section class="panel counter"><div class="bigheart">💞</div><div><h2>Our little story</h2><p>We've been talking for <span class="pink" id="days">7 days</span>.<br>Just one week — and already a sweet little memory.</p></div></section>
+<div class="footer">Made with a little courage and a lot of heart.<br>Distance is measured between city centers, not exact addresses.</div></main>
+<script src="https://unpkg.com/globe.gl"></script><script>
+const cities=[{name:"Novosibirsk, Russia",lat:55.0084,lng:82.9357,color:"#ff85bd"},{name:"Dresden, Germany",lat:51.0504,lng:13.7373,color:"#b7a5ff"}];
+function distance(a,b){const r=Math.PI/180,dl=(b.lat-a.lat)*r,dg=(b.lng-a.lng)*r,la=a.lat*r,lb=b.lat*r,h=Math.sin(dl/2)**2+Math.cos(la)*Math.cos(lb)*Math.sin(dg/2)**2;return Math.round(6371.0088*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h)))}
+const km=distance(cities[0],cities[1]),msg=document.getElementById("message");
+function say(t){msg.classList.remove("show");setTimeout(()=>{msg.textContent=t;msg.classList.add("show")},70)}
+function rain(n=40){const s=["💗","💖","💕","💘","♡"];for(let i=0;i<n;i++){let e=document.createElement("span");e.className="heart";e.textContent=s[Math.random()*s.length|0];e.style.left=Math.random()*100+"vw";e.style.fontSize=14+Math.random()*22+"px";e.style.animationDuration=3+Math.random()*3+"s";e.style.setProperty("--drift",Math.random()*180-90+"px");document.body.appendChild(e);setTimeout(()=>e.remove(),7000)}}
+const song=document.getElementById("ourSong");
+document.getElementById("playSong").onclick=async()=>{try{await song.play();document.getElementById("musicStatus").textContent="Now playing — let the moment begin 💗";document.getElementById("playSong").textContent="♫ Playing…"}catch(e){document.getElementById("musicStatus").textContent="Tap Play again to start the music."}};
+document.getElementById("pauseSong").onclick=()=>{song.pause();document.getElementById("musicStatus").textContent="Paused — press play whenever you like.";document.getElementById("playSong").textContent="▶ Play our song"};
+document.getElementById("measure").onclick=()=>{document.getElementById("distance").textContent=km.toLocaleString("en-US")+" km";say("Different cities, one small world. I'm glad our paths crossed. 💗");rain(35);if(window.g)g.pointOfView({lat:53,lng:48,altitude:1.7},1200)};
+document.getElementById("surprise").onclick=()=>{let a=["You have a way of making an ordinary day feel a little brighter. ✨","I don't need a perfect conversation — even a simple hello from you can make me smile. 💛","Some people make distance feel a little smaller just by being themselves. You're one of them. 🌙","I'm happy we started talking. No pressure, no promises — just a lovely little connection. 💌","If kindness had a glow, I think yours would be visible from space. 🌟"];say(a[Math.random()*a.length|0]);rain(22)};
+document.getElementById("hearts").onclick=()=>{rain(70);say("A tiny shower of hearts, sent all the way from my side of the map. 💗")};
+const start=new Date("2026-10-18T12:00:00");function days(){let n=Math.max(1,Math.floor((Date.now()-start)/86400000)+1);document.getElementById("days").textContent=n+(n===1?" day":" days")}days();
+if(typeof Globe!=="undefined"){window.g=Globe()(document.getElementById("globe")).globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg").bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png").backgroundColor("rgba(0,0,0,0)").showAtmosphere(true).atmosphereColor("#a99aff").atmosphereAltitude(.18).pointsData(cities).pointLat("lat").pointLng("lng").pointColor("color").pointAltitude(.035).pointRadius(.55).pointLabel(d=>`<div style="padding:7px 10px;background:#17152d;color:white;border:1px solid #ffabd3;border-radius:10px">${d.name}</div>`).arcsData([{startLat:cities[0].lat,startLng:cities[0].lng,endLat:cities[1].lat,endLng:cities[1].lng}]).arcColor(()=>["#ff85bd","#b7a5ff"]).arcDashLength(.42).arcDashGap(.25).arcDashAnimateTime(1800).arcStroke(.7).ringColor(d=>d.color).ringMaxRadius(3.5).ringPropagationSpeed(2).ringRepeatPeriod(950).ringsData(cities);g.pointOfView({lat:53,lng:48,altitude:2.15});g.controls().autoRotate=true;g.controls().autoRotateSpeed=.35;g.controls().enableDamping=true;addEventListener("resize",()=>g.width(document.getElementById("globe").clientWidth).height(document.getElementById("globe").clientHeight))}
+else{document.getElementById("globe").innerHTML='<div style="padding:80px 20px;color:#cbc6e3">Connect to the internet to load the interactive Earth. The other buttons still work.</div>'}
+</script></body></html>
